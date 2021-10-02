@@ -12,8 +12,8 @@ inputRef.addEventListener('input', debounce(onInput, 500));
 
 function onInput() {
 outputRef.innerHTML = ''; // очистка блока вывода информации
-
-  fetch(`https://restcountries.eu/rest/v2/name/${inputRef.value}`)
+  //fetch(`https://restcountries.eu/rest/v2/name/${inputRef.value}`)
+    fetch(`https://restcountries.com/v3/name/${searchQuery}`)
     .then(response => {
       if (!response.ok) {
         throw new Error("HTTP status " + response.status); //если статус ответа сервера  не в диапазоне 200-299, генерируем ошибку и передаем управление в catch
