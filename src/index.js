@@ -4,7 +4,7 @@ import { alert, notice, info, success, error, defaultModules } from '@pnotify/co
 
 import { debounce } from 'lodash';
 
-
+//fetch(`https://restcountries.eu/rest/v2/name/${inputRef.value}`)
 
 const inputRef = document.getElementById('searchbar');
 const outputRef = document.getElementById('output');
@@ -12,7 +12,6 @@ inputRef.addEventListener('input', debounce(onInput, 500));
 
 function onInput() {
 outputRef.innerHTML = ''; // очистка блока вывода информации
-  //fetch(`https://restcountries.eu/rest/v2/name/${inputRef.value}`)
   fetch(`https://restcountries.com/v3/name/${inputRef.value}`)
     .then(response => {
       if (!response.ok) {
@@ -29,12 +28,11 @@ outputRef.innerHTML = ''; // очистка блока вывода информ
             ({
               name,
               capital,
-              population,
               languages,
               flag,
             }) => `<h2 class='country-name'>${name}</h2> <div class='wrapper'><ul class = 'markers-off-list left-part'><li> Capital: ${capital}</li>
-         <li> Population: ${population}</li> <li>Languages: <ul class='markers-on-list'> ${languages
-              .map(el => `<li>${el.name}</li>`)
+         <li> Population: ${}</li> <li>Languages: <ul class='markers-on-list'> ${languages
+            .map(el => `<li>${el.name}</li>`)
               .join('')}</li></ul></ul>
           <div class=right-part><img class= 'flag-img' src='${flag}'></div> </div>`,
           ),
