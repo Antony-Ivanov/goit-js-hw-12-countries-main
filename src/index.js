@@ -6,7 +6,7 @@ import { debounce } from 'lodash';
 
 
 
-const inputRef = document.getElementById('searchbar');
+const searchQuery = document.getElementById('searchbar');
 const outputRef = document.getElementById('output');
 inputRef.addEventListener('input', debounce(onInput, 500));
 
