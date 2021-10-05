@@ -19471,8 +19471,9 @@ inputRef.addEventListener('input', (0, _lodash.debounce)(onInput, 500));
 
 function onInput() {
   outputRef.innerHTML = ''; // очистка блока вывода информации
+  //fetch(`https://restcountries.eu/rest/v2/name/${inputRef.value}`)
 
-  fetch(`https://restcountries.eu/rest/v2/name/${inputRef.value}`).then(response => {
+  fetch(`https://restcountries.com/v3/name/${inputRef.value}`).then(response => {
     if (!response.ok) {
       throw new Error("HTTP status " + response.status); //если статус ответа сервера  не в диапазоне 200-299, генерируем ошибку и передаем управление в catch
     }
@@ -19534,7 +19535,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53770" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65432" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
